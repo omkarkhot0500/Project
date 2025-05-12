@@ -1,0 +1,95 @@
+/* App.module.css */
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-block: 2rem 1rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+section {
+  margin-block: 3rem;
+}
+
+.mainContainer {
+  width: 100%;
+}
+
+/* Marquee styles */
+.marquee {
+  position: relative;
+  display: flex;
+  gap: 22px;
+  justify-content: space-around;
+  overflow: hidden;
+  height: 240px;
+}
+
+.marqueeContent {
+  display: flex;
+  gap: 22px;
+  min-width: 100%;
+  margin-left: 3rem;
+}
+
+.marqueeContent img {
+  max-width: 2rem;
+  width: 100%;
+  object-fit: contain;
+}
+
+.marqueeContent > * {
+  flex: 0 0 auto;
+  color: white;
+  background-color: white;
+  margin: 2px;
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.marqueeItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 15px;
+  width: 450px;
+}
+
+ul {
+  padding-left: 0;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(-100% - 1rem));
+  }
+}
+
+/* Enable animation */
+.enablea .marqueeContent {
+  animation: scroll 10s linear infinite;
+}
+
+.enablea {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+#row-flex {
+  background-color: rgb(0, 5, 5) !important;
+}

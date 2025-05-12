@@ -1,0 +1,94 @@
+/* App.module.css */
+
+* {
+  box-sizing: border-box;
+}
+
+h1 {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-block: 2rem 1rem;
+  text-align: center;
+}
+
+h2 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+section {
+  margin-block: 3rem;
+}
+
+.mainContainer {
+  width: 100%;
+}
+
+/* Marquee styles */
+.marquee {
+  position: relative;
+  display: flex;
+  justify-content: space-evenly;
+  overflow: hidden;
+  user-select: none;
+  gap: var(1rem);
+  /* border: 2px solid lightgray; */
+  height: 240px;
+}
+
+.marqueeContent {
+  flex-shrink: 0;
+  display: flex;
+  /* background-color: red; */
+  gap: 22px;
+  min-width: 100%;
+}
+
+.marqueeContent img {
+  max-width: 2rem;
+  width: 100%;
+  object-fit: contain;
+}
+
+.marqueeContent > * {
+  flex: 0 0 auto;
+  transform: translateX(-10000px);
+  color: white;
+  background-color: white;
+  margin: 2px;
+  padding: 1rem 2rem;
+  border-radius: 0.25rem;
+  text-align: center;
+}
+
+.marqueeItem {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 15px;
+  width: 450px;
+}
+
+ul {
+  padding-left: 0;
+}
+
+@keyframes scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(calc(100% - 1rem));
+  }
+}
+
+/* Enable animation */
+.enablea .marqueeContent {
+  animation: scroll 80s linear infinite;
+}
+
+.enablea {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
