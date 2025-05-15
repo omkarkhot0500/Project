@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import logo from "../assets/logo.png";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -9,13 +8,23 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const isHomePage = location.pathname === "/home";
 
+  // Handle scroll behavior
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
+    
+    // Initial check for scroll position
+    handleScroll();
+    
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setIsOpen(false);
+  }, [location.pathname]);
 
   const toggleMenu = () => setIsOpen(!isOpen);
   const isActive = (path) => location.pathname === path;
@@ -43,13 +52,9 @@ const Navbar = () => {
 
   const MobileFormLinkButton = () => (
     <div
-      className={`transition-all duration-500 ease-in-out transform w-full ${
-        isHomePage ? "max-h-20 opacity-100 mb-0" : "max-h-0 opacity-0 mb-0 overflow-hidden"
+      className={`transition-all duration-300 ease-in-out transform w-full ${
+        isHomePage ? "max-h-20 opacity-100 mb-2" : "max-h-0 opacity-0 mb-0 overflow-hidden"
       }`}
-      style={{
-        animation: isOpen && isHomePage ? "fadeInUp 0.3s forwards" : "none",
-        animationDelay: "250ms",
-      }}
     >
       <button
         className="bg-white text-purple-700 w-full py-3 rounded-full hover:bg-purple-100 transition-all duration-300 font-bold shadow-md mt-2"
@@ -66,9 +71,9 @@ const Navbar = () => {
   );
 
   return (
-    <div className="flex w-full justify-center mt-6 lg:mt-10 sticky top-4 z-50 px-4">
+    <div className="fixed top-0 left-0 right-0 w-full px-4 pt-4 pb-2 z-50 bg-transparent">
       <div
-        className={`flex justify-between w-full md:w-[90%] lg:w-[85%] rounded-full px-5 py-3 md:px-8 md:py-4 items-center transition-all duration-300 shadow-lg ${
+        className={`flex justify-between w-full max-w-6xl mx-auto rounded-full px-5 py-3 md:px-8 md:py-4 items-center transition-all duration-300 shadow-lg ${
           scrolled
             ? "bg-gradient-to-r from-purple-700 to-violet-800 shadow-purple-500/30"
             : "bg-gradient-to-r from-purple-600 to-violet-700"
@@ -91,8 +96,6 @@ const Navbar = () => {
           {[
             { name: "PROJECTS", path: "/projects" },
             { name: "EVENTS", path: "/events" },
-            // { name: "DEPARTMENTS", path: "/departments" },
-            // { name: "ALUMNI", path: "/alumni" },
             { name: "TEAM", path: "/team" },
           ].map((item) => (
             <div
@@ -106,7 +109,7 @@ const Navbar = () => {
             >
               {item.name}
               <span
-                className={`absolute -bottom-2 left-0 w-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full ${
+                className={`absolute -bottom-2 left-0 h-0.5 bg-white transition-all duration-300 group-hover:w-full ${
                   isActive(item.path) ? "w-full" : "w-0"
                 }`}
               ></span>
@@ -120,6 +123,7 @@ const Navbar = () => {
           <button
             onClick={toggleMenu}
             className="text-white p-1 focus:outline-none focus:ring-2 focus:ring-white rounded-md"
+            aria-label="Toggle menu"
           >
             {isOpen ? (
               <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -136,18 +140,17 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`md:hidden fixed top-[70px] left-0 w-full bg-gradient-to-b from-purple-700 to-violet-900 transition-all duration-300 ease-in-out z-40 shadow-xl ${
-          isOpen ? "max-h-[80vh] opacity-100" : "max-h-0 opacity-0 overflow-hidden"
-        }`}
-      >
-        <div className="flex flex-col items-center gap-6 py-6 px-4">
+  className={`md:hidden fixed left-4 right-4 mt-3 rounded-xl bg-gradient-to-b from-purple-700 to-violet-900 transition-all duration-300 ease-in-out z-40 shadow-2xl ${
+    isOpen ? "top-16 opacity-100" : "top-[-100vh] opacity-0"
+  }`}
+>
+
+        <div className="flex flex-col items-center gap-4 py-4 px-4">
           {[
             { name: "PROJECTS", path: "/projects" },
-            // { name: "DEPARTMENTS", path: "/departments" },
             { name: "EVENTS", path: "/events" },
-            // { name: "ALUMNI", path: "/alumni" },
             { name: "TEAM", path: "/team" },
-          ].map((item, index) => (
+          ].map((item) => (
             <div
               key={item.name}
               className={`cursor-pointer font-bold text-sm w-full text-center py-3 transition-all duration-300 ${
@@ -158,10 +161,6 @@ const Navbar = () => {
               onClick={() => {
                 navigate(item.path);
                 toggleMenu();
-              }}
-              style={{
-                animationDelay: `${index * 50}ms`,
-                animation: isOpen ? "fadeInDown 0.3s forwards" : "none",
               }}
             >
               {item.name}

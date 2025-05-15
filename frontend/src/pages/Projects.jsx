@@ -1,4 +1,3 @@
-
 import React, { useState, useRef, useEffect } from "react";
 import styles from "/src/Css/page.module.css";
 import cross from "/src/assets/cross.svg";
@@ -20,8 +19,8 @@ function Project() {
   const [color, setcolor] = useState(googlecolor[num]);
   const desc = useRef();
   const [projectdata, setdata] = useState(data[num]);
+
   useEffect(() => {
-    //do something
     setdata(data[datan]);
   }, [datan]);
 
@@ -29,15 +28,11 @@ function Project() {
     const nextIndex = (num + 1) % googlecolor.length;
     const dataindex = (datan + 1) % data.length;
     setdatan(dataindex);
-    console.log(num + "num");
     setnum(nextIndex);
     setcolor(googlecolor[nextIndex]);
   };
- 
-
 
   return (
-
     <>
       <div className={styles.main} style={getUpdatedStyles(color)}>
         <Navbar />
@@ -57,42 +52,29 @@ function Project() {
             name={projectdata.Name}
             stats={projectdata.ProjectStat[0]}
             color={color}
-            getUpdatedStyles={getUpdatedStyles}
           />
         ) : null}
         <Footer />
       </div>
     </>
   );
-
-    <h1 className="proj">Projects</h1>  
-
-
 }
 
 export default Project;
 
+// Reusable Components
+
 function Stats({ stats }) {
   return (
     <div className="flex gap-x-[15px] mt-[28px]">
-      <div>
-        <h3 className="font-bold text-[20px] lg:text-[45px]">
-          {stats.Members}
-        </h3>
-        <p className="font-semibold text-[15px] lg:text-[25px]">Members</p>
-      </div>
-      <div>
-        <h3 className="font-bold text-[20px] lg:text-[45px]">
-          {stats.Projects}
-        </h3>
-        <p className="font-semibold text-[15px] lg:text-[25px]">Projects</p>
-      </div>
-      <div>
-        <h3 className="font-bold text-[20px] lg:text-[45px]">
-          {stats.Departments}
-        </h3>
-        <p className="font-semibold text-[15px] lg:text-[25px]">Departments</p>
-      </div>
+      {["Members", "Projects", "Departments"].map((key, i) => (
+        <div key={i}>
+          <h3 className="font-bold text-[20px] lg:text-[45px]">
+            {stats[key]}
+          </h3>
+          <p className="font-semibold text-[15px] lg:text-[25px]">{key}</p>
+        </div>
+      ))}
     </div>
   );
 }
@@ -108,16 +90,15 @@ function ProjectDesc({ setdisplay, desc1, desc2, name, stats, color }) {
         <div className="flex justify-end">
           <img
             src={cross}
-            alt=""
-            className="lg:p-3 p-2 bg-[#f5f5f5] rounded-full  mt-[20px] self-start
-          h-[30px] lg:h-[40px] "
+            alt="close"
+            className="lg:p-3 p-2 bg-[#f5f5f5] rounded-full mt-[20px] h-[30px] lg:h-[40px]"
             onClick={() => setdisplay(false)}
           />
         </div>
 
         <div className={styles.full}>
           <div className="flex items-start bg-slate-700 w-fit">
-            <img src={img} alt="" className={styles.photo} />
+            <img src={img} alt="project illustration" className={styles.photo} />
           </div>
           <p className={styles.tl} style={getUpdatedStyles(color)}>
             Tl;DR
@@ -142,9 +123,16 @@ function ProjectDesc({ setdisplay, desc1, desc2, name, stats, color }) {
         <p className={styles.more}>
           Have a look at other projects made by CSE(AIML)
         </p>
-        <div className="flex justify-between lg:flex-row flex-col">
+
+        {/* Desktop view: show 3 cards */}
+        <div className="hidden lg:flex justify-between">
           <MorProjects color={color} getUpdatedStyles={getUpdatedStyles} />
           <MorProjects color={color} getUpdatedStyles={getUpdatedStyles} />
+          <MorProjects color={color} getUpdatedStyles={getUpdatedStyles} />
+        </div>
+
+        {/* Mobile view: show 1 card only */}
+        <div className="flex lg:hidden justify-center mt-5">
           <MorProjects color={color} getUpdatedStyles={getUpdatedStyles} />
         </div>
       </div>
@@ -165,10 +153,7 @@ function Card({ setdisplay, onNextCard, color, datan }) {
 
 function ProejctCard({ onNextCard, color, datan, setdisplay }) {
   return (
-    <div
-      id="box-card"
-      className="flex w-full flex-col items-center justify-center gap-32 p-8 mt-10 mb-[40px] md:flex-row "
-    >
+    <div className="flex w-full flex-col items-center justify-center gap-32 p-8 mt-10 mb-[40px] md:flex-row">
       <button
         className="border-b-[3px] border-b-black text-2xl font-semibold"
         onClick={() => setdisplay(true)}
@@ -177,9 +162,7 @@ function ProejctCard({ onNextCard, color, datan, setdisplay }) {
       </button>
       <div className="relative">
         <div
-          id="card"
-          className="relative z-20 flex h-[350px] w-[220px] rotate-0 flex-col justify-center gap-[20px] rounded-2xl bg-[#f5f5f5] p-[10px]
-          pr-4 border-[1px] lg:w-[290px] lg:h-[410px] lg:p-[20px]"
+          className="relative z-20 flex h-[350px] w-[220px] flex-col justify-center gap-[20px] rounded-2xl bg-[#f5f5f5] p-[10px] pr-4 border-[1px] lg:w-[290px] lg:h-[410px] lg:p-[20px]"
         >
           <button
             className="bg-[#ea4335] h-[30px] w-[90px] rounded-full mt-6 text-white text-[15px] font-semibold"
@@ -190,11 +173,11 @@ function ProejctCard({ onNextCard, color, datan, setdisplay }) {
           <h1 className="text-normal font-bold lg:text-xl">
             Lorem ipsum dolor sit amet consectetur.
           </h1>
-          <div className="flex h-[250px] w-[250px]  ">
+          <div className="flex h-[250px] w-[250px]">
             <img
-              className="rounded-lg h-[130px]  lg:h-[230px]"
+              className="rounded-lg h-[130px] lg:h-[230px]"
               src={pc}
-              alt=""
+              alt="project"
             />
           </div>
         </div>
