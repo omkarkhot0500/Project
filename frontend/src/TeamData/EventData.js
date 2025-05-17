@@ -1,4 +1,36 @@
-export const current = [];
+export const current = [
+  {
+    type: "Workshop",
+    name: "AI & ML Bootcamp",
+    date: "May 25, 2025",
+    desc: "A hands-on bootcamp covering real-world applications of AI and machine learning using Python and TensorFlow.",
+  },
+  {
+    type: "Hackathon",
+    name: "CodeStorm 2025",
+    date: "June 1, 2025",
+    desc: "24-hour coding sprint for developers and designers to build innovative tech solutions.",
+  },
+  {
+    type: "Seminar",
+    name: "Cybersecurity Awareness",
+    date: "May 22, 2025",
+    desc: "An expert-led session focusing on the latest cybersecurity threats and how to counter them.",
+  },
+  {
+    type: "Tech Talk",
+    name: "Next-Gen Web Tech",
+    date: "May 20, 2025",
+    desc: "A panel discussion on the future of web development featuring React, WebAssembly, and serverless architecture.",
+  },
+  {
+    type: "Competition",
+    name: "Debugging Challenge",
+    date: "May 18, 2025",
+    desc: "A race against time to identify and fix bugs in a legacy codebase. Prizes await the top scorers!",
+  }
+];
+
 
 export const previous = [
   {

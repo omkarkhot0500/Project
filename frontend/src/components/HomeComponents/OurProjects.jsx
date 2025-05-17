@@ -1,19 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-
 const OurProjects = () => {
   const navigate = useNavigate();
   return (
     <div className="flex justify-center items-center flex-col">
       <div className="w-[80%] flex flex-col justify-center items-center">
-        <button
-          className="px-10 py-2 bg-gdsc-blue text-white rounded-3xl hover:opacity-90 transition-all projectsAnim"
-          onClick={() => navigate("/projects")}
-        >
-          Our Projects
-        </button>
-
         <h1 className="text-6xl font-semibold mt-6 projectsAnim">
           Our Projects
         </h1>
@@ -22,6 +14,13 @@ const OurProjects = () => {
           numquam quis iste vitae autem accusantium asperiores, aperiam laborum
           nemo perspiciatis a laudantium?
         </p>
+
+        <button
+          className="px-10 py-2 bg-gdsc-blue text-white rounded-3xl hover:opacity-90 transition-all projectsAnim mb-3.5"
+          onClick={() => navigate("/projects")}
+        >
+          Our Projects
+        </button>
 
         {/* Desktop View Only */}
         <div className="lg:block hidden w-full overflow-hidden">
