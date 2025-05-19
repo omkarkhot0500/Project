@@ -258,21 +258,19 @@ const HeroSection = () => {
 
         {/* Animated headline with letter-by-letter reveal */}
         <h1 className="text-3xl lg:text-8xl text-center font-bold text-gray-900 overflow-hidden">
-          {"chandriGAtCSEAIML"
-            .split("")
-            .map((letter, index) => (
-              <span
-                key={index}
-                className="inline-block transition-all duration-700"
-                style={{
-                  transform: isVisible ? "translateY(0)" : "translateY(100%)",
-                  opacity: isVisible ? 1 : 0,
-                  transitionDelay: `${index * 50}ms`,
-                }}
-              >
-                {letter === " " ? "\u00A0" : letter}
-              </span>
-            ))}
+          {"chandrineendodhsundriGAtCSEAIML".split("").map((letter, index) => (
+            <span
+              key={index}
+              className="inline-block transition-all duration-700"
+              style={{
+                transform: isVisible ? "translateY(0)" : "translateY(100%)",
+                opacity: isVisible ? 1 : 0,
+                transitionDelay: `${index * 50}ms`,
+              }}
+            >
+              {letter === " " ? "\u00A0" : letter}
+            </span>
+          ))}
         </h1>
       </div>
 
