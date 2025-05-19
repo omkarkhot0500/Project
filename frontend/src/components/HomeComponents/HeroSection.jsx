@@ -258,7 +258,7 @@ const HeroSection = () => {
 
         {/* Animated headline with letter-by-letter reveal */}
         <h1 className="text-3xl lg:text-8xl text-center font-bold text-gray-900 overflow-hidden">
-          {"chandrineendodhsundriGAtCSEAIML".split("").map((letter, index) => (
+          {"saaaaaaaaaaaaaaaaaaaaaaaatvik".split("").map((letter, index) => (
             <span
               key={index}
               className="inline-block transition-all duration-700"
