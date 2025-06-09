@@ -9,13 +9,17 @@ import Footer from "./components/Footer";
 import Departments from "./pages/Departments";
 import Alumni from "./pages/Alumni";
 import SplashPage from "./pages/SplashPage";
+import DetailPage from "./pages/DetailPage"; // Import the new DetailPage component
 
 // Inner App component with access to router context
 const AppContent = () => {
   const location = useLocation();
 
   const hideNavbarFooter =
-    location.pathname === "/" || location.pathname === "/projects" || location.pathname === "/events";
+    location.pathname === "/" || 
+    location.pathname === "/projects" || 
+    location.pathname === "/events" ||
+    location.pathname.startsWith("/detail/"); // Hide navbar/footer on detail pages
 
   return (
     <div className="w-full min-h-screen">
@@ -28,6 +32,7 @@ const AppContent = () => {
         <Route path="/alumni" element={<Alumni />} />
         <Route path="/team" element={<Team />} />
         <Route path="/projects" element={<Projects />} />
+        <Route path="/detail/:id" element={<DetailPage />} /> {/* New detail route */}
       </Routes>
       {!hideNavbarFooter && <Footer />}
     </div>

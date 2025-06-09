@@ -1,21 +1,36 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from 'react-router-dom';
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
-import backgroundImage from "/src/assets/eventbg.svg";
+import backgroundImage from "../assets/eventbg.svg";
 import EventsAndGallery from "../components/EventPage/Header";
-import { current, previous } from "/src/TeamData/EventData.js";
+import { current, previous } from "../TeamData/EventData.js";
 import Infi from "../components/EventPage/Infi";
 import MidInfi from "../components/EventPage/MidInfi";
 import { Code } from "lucide-react";
 
-// Card component with dramatic dimension change on hover
-function Card({ type, name, date, desc }) {
+function Card({ type, name, date, desc, img, id }) {
   const [isHovered, setIsHovered] = useState(false);
+  const navigate = useNavigate();
+
+  const handleCardClick = () => {
+    // Navigate to detail page with the card data
+    navigate(`/detail/${id}`, { 
+      state: { 
+        type, 
+        name, 
+        date, 
+        desc, 
+        img,
+        id 
+      } 
+    });
+  };
 
   return (
     <div
       id="box-flex"
-      className={`flex w-full sm:w-[350px] md:w-[370px] lg:w-[400px] flex-col gap-[10px] rounded-2xl p-[15px] sm:p-[20px] md:p-[25px] transition-all duration-500 cursor-pointer
+      className={`relative flex w-full sm:w-[350px] md:w-[370px] lg:w-[400px] flex-col gap-[10px] rounded-2xl p-[15px] sm:p-[20px] md:p-[25px] transition-all duration-500 cursor-pointer
       ${
         isHovered
           ? "bg-gradient-to-r from-[#e37401] to-[#ff9933] text-white transform scale-105 rotate-2 z-10"
@@ -23,24 +38,26 @@ function Card({ type, name, date, desc }) {
       }`}
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
+      onClick={handleCardClick}
     >
       <div
         id="Box1"
-        className={`h-[175px] sm:h-[200px] md:h-[225px] rounded-2xl transition-all duration-500 overflow-hidden
-        ${
-          isHovered
-            ? "transform skew-y-2 shadow-lg shadow-orange-400/50"
-            : "bg-white"
-        }`}
+        className={`h-[175px] sm:h-[200px] md:h-[225px] rounded-2xl transition-all duration-500 overflow-hidden relative`}
       >
+        <img
+          src={img}
+          alt={name}
+          className="w-full h-full object-cover rounded-2xl"
+        />
         {isHovered && (
-          <div className="w-full h-full bg-gradient-to-br from-black/20 to-transparent flex items-center justify-center">
+          <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-black/20 to-transparent flex items-center justify-center">
             <div className="bg-white text-black p-4 rounded-full rotate-12 animate-pulse">
-              <Code size={24} sm={24} md={30} />
+              <Code size={24} />
             </div>
           </div>
         )}
       </div>
+
       <div className="flex items-start">
         <button
           className={`rounded-3xl px-3 sm:px-4 md:px-5 py-1 font-bold text-[12px] sm:text-[13px] md:text-[14px] transition-all duration-500
@@ -53,6 +70,7 @@ function Card({ type, name, date, desc }) {
           {type}
         </button>
       </div>
+
       <p
         className={`font-bold text-1 transition-all duration-500 text-[14px] sm:text-base ${
           isHovered ? "text-white/80" : ""
@@ -60,13 +78,13 @@ function Card({ type, name, date, desc }) {
       >
         {date}
       </p>
+
       <h2
-        className={`font-bold text-[18px] sm:text-[20px] md:text-[24px] transition-all duration-500 ${
-          isHovered ? "" : ""
-        }`}
+        className={`font-bold text-[18px] sm:text-[20px] md:text-[24px] transition-all duration-500`}
       >
         {name}
       </h2>
+
       <p
         className={`transition-all duration-500 text-[14px] sm:text-base ${
           isHovered ? "text-white/90" : "opacity-50"
@@ -74,10 +92,20 @@ function Card({ type, name, date, desc }) {
       >
         {desc}
       </p>
+
       {isHovered && (
         <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
           <div className="absolute -right-6 -bottom-6 w-16 sm:w-20 md:w-24 h-16 sm:h-20 md:h-24 bg-orange-300/20 rounded-full blur-xl"></div>
           <div className="absolute -left-4 -top-4 w-12 sm:w-14 md:w-16 h-12 sm:h-14 md:h-16 bg-orange-400/20 rounded-full blur-lg"></div>
+        </div>
+      )}
+
+      {/* Click indicator */}
+      {isHovered && (
+        <div className="absolute bottom-4 right-4 bg-white/20 backdrop-blur-sm rounded-full p-2">
+          <svg className="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+          </svg>
         </div>
       )}
     </div>
@@ -117,6 +145,7 @@ function EventHeading({ title, data }) {
               name={one.name}
               date={one.date}
               desc={one.desc}
+              img={one.img}
             />
           </div>
         ))}
@@ -144,7 +173,6 @@ const Events = () => {
           className="flex justify-center items-center flex-col py-10 md:py-16 lg:py-0 lg:h-[90vh]"
         >
           <div className="flex justify-center items-center mb-8 sm:mb-10 md:mb-12 lg:mb-14 w-full px-4">
-            {/* This is where the animated header is now placed */}
             <EventsAndGallery />
           </div>
         </div>
