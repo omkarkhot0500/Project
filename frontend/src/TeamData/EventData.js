@@ -2,13 +2,6 @@ export const current = [];
 
 export const previous = [
   {
-    type: "Technical Event",
-    name: "MindMaze",
-    date: "February 26, 2024",
-    desc: "A technical event organized by the Anveshan Club featuring three dynamic rounds: Aptitude Round, Treasure Hunt, and Mystery Murder Puzzle.",
-    img: "https://picsum.photos/400/300?random=1",
-  },
-  {
     type: "Technical Talk",
     name: "Entrepreneurship with Mr. Dinesh M",
     date: "2024",
@@ -17,10 +10,17 @@ export const previous = [
   },
   {
     type: "Technical Event",
-    name: "Technical Maze",
-    date: "September 27, 2024",
-    desc: "An event featuring two engaging rounds that challenged students on problem-solving and technical skills.",
-    img: "https://picsum.photos/400/300?random=3",
+    name: "MindMaze",
+    date: "February 26, 2024",
+    desc: "A technical event organized by the Anveshan Club featuring three dynamic rounds: Aptitude Round, Treasure Hunt, and Mystery Murder Puzzle.",
+    img: "https://picsum.photos/400/300?random=1",
+  },
+  {
+    type: "Value Added Program",
+    name: "Generative AI and LLM",
+    date: "April 26–30, 2024",
+    desc: "A 4-day immersive program led by Vamshi covering CNNs, Autoencoders, and practical tools like LangChain and Gradio for building AI applications.",
+    img: "https://picsum.photos/400/300?random=9",
   },
   {
     type: "Value Added Program",
@@ -44,6 +44,13 @@ export const previous = [
     img: "https://picsum.photos/400/300?random=6",
   },
   {
+    type: "Technical Event",
+    name: "Technical Maze",
+    date: "September 27, 2024",
+    desc: "An event featuring two engaging rounds that challenged students on problem-solving and technical skills.",
+    img: "https://picsum.photos/400/300?random=3",
+  },
+  {
     type: "Skill Development Program",
     name: "AI & Image Segmentation",
     date: "January 9, 2025",
@@ -56,12 +63,5 @@ export const previous = [
     date: "February 5, 2025",
     desc: "Conducted by Mr. Mahadeva Prasad L, this session covered Power BI tools, data modeling with DAX, and integration with Python, R, and cloud platforms.",
     img: "https://picsum.photos/400/300?random=8",
-  },
-  {
-    type: "Value Added Program",
-    name: "Generative AI and LLM",
-    date: "April 26–30, 2024",
-    desc: "A 4-day immersive program led by Vamshi covering CNNs, Autoencoders, and practical tools like LangChain and Gradio for building AI applications.",
-    img: "https://picsum.photos/400/300?random=9",
   },
 ];
