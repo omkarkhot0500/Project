@@ -9,7 +9,6 @@ import {
 } from "lucide-react";
 
 const DetailPage = () => {
-  // Sample data for demonstration
   const [currentEvent] = useState({
     type: "Skill Development Program",
     name: "Data Visualization using Power BI",
@@ -18,8 +17,8 @@ const DetailPage = () => {
     img: "https://picsum.photos/400/300?random=8",
   });
 
-  const handleBack = () => {
-    console.log("Navigate back");
+    const handleBack = () => {
+    window.history.back();
   };
 
   const handleShare = () => {
