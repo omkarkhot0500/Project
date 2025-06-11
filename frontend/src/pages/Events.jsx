@@ -4,7 +4,7 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import backgroundImage from "../assets/eventbg.svg";
 import EventsAndGallery from "../components/EventPage/Header";
-import { current, previous } from "../TeamData/EventData.js";
+import { current, previous } from "../TeamData/EventData";
 import Infi from "../components/EventPage/Infi";
 import MidInfi from "../components/EventPage/MidInfi";
 import { Code } from "lucide-react";
@@ -14,7 +14,6 @@ function Card({ type, name, date, desc, img, id }) {
   const navigate = useNavigate();
 
   const handleCardClick = () => {
-    // Navigate to detail page with the card data
     navigate(`/detail/${id}`, { 
       state: { 
         type, 

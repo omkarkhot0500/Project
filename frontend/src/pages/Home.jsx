@@ -1,8 +1,8 @@
 import React from 'react'
 import HeroSection from '../components/HomeComponents/HeroSection'
 import AboutUs from '../components/HomeComponents/AboutUs'
-import OurProjects from '../components/HomeComponents/OurProjects'
 import Form from '../components/HomeComponents/Form'
+import OurEvents from '../components/HomeComponents/OurEvents'
 
 const Home = () => {
   return (
@@ -16,7 +16,7 @@ const Home = () => {
       </section>
       
       <section className="w-full py-10 md:py-16 lg:py-20">
-        <OurProjects />
+        <OurEvents />
       </section>
 
       {/* <div className=" mt-28 h-[100vh]">

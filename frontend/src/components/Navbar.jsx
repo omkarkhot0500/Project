@@ -94,7 +94,7 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <div className="hidden md:flex gap-6 lg:gap-10 items-center">
           {[
-            { name: "PROJECTS", path: "/projects" },
+            // { name: "PROJECTS", path: "/projects" },
             { name: "EVENTS", path: "/events" },
             { name: "TEAM", path: "/team" },
           ].map((item) => (
