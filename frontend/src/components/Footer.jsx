@@ -26,31 +26,115 @@ const Footer = () => {
                 .scrollIntoView({ behavior: "smooth" });
             }}
           >
-            FORM LINK
+            JOIN US
           </button>
         </div>
-        <div className="grid grid-cols-1 sm:grid-cols-5 md:grid-cols-5 gap-2 w-full md:w-[60%] mb-6">
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 gap-6 w-full mb-8">
+          {/* Quick Links */}
           <div>
-            <h1 className="text-gray-600 font-bold lg:mb-4">PROJECTS</h1>
-            <div className="lg:block hidden">
-              <div className="text-sm font-semibold text-gray-500">
-                <a href="#">PROJ1</a>
+            <h1 className="text-gray-600 font-bold mb-4">QUICK LINKS</h1>
+            <div className="space-y-2">
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#about">About Us</a>
               </div>
-              <div className="text-sm font-semibold text-gray-500">
-                <a href="#">PROJ2</a>
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#events">Events</a>
               </div>
-              <div className="text-sm font-semibold text-gray-500">
-                <a href="#">PROJ3</a>
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#workshops">Workshops</a>
+              </div>
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#gallery">Gallery</a>
               </div>
             </div>
           </div>
+
+          {/* Projects */}
           <div>
-            <h1 className="text-gray-600 font-bold">TEAM</h1>
+            <h1 className="text-gray-600 font-bold mb-4">PROJECTS</h1>
+            <div className="space-y-2">
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#projects/web-dev">Web Development</a>
+              </div>
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#projects/mobile-apps">Mobile Apps</a>
+              </div>
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#projects/ai-ml">AI/ML Projects</a>
+              </div>
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#projects/open-source">Open Source</a>
+              </div>
+            </div>
+          </div>
+
+          {/* Resources */}
+          <div>
+            <h1 className="text-gray-600 font-bold mb-4">RESOURCES</h1>
+            <div className="space-y-2">
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#tutorials">Tutorials</a>
+              </div>
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#coding-challenges">Challenges</a>
+              </div>
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#blog">Tech Blog</a>
+              </div>
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#documentation">Docs</a>
+              </div>
+            </div>
+          </div>
+
+          {/* Team */}
+          <div>
+            <h1 className="text-gray-600 font-bold mb-4">TEAM</h1>
+            <div className="space-y-2">
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#team/core">Core Team</a>
+              </div>
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#team/mentors">Mentors</a>
+              </div>
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#team/alumni">Alumni</a>
+              </div>
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#contact">Contact</a>
+              </div>
+            </div>
+          </div>
+
+          {/* Connect */}
+          <div>
+            <h1 className="text-gray-600 font-bold mb-4">CONNECT</h1>
+            <div className="space-y-2">
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#" target="_blank" rel="noopener noreferrer">Discord</a>
+              </div>
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#" target="_blank" rel="noopener noreferrer">GitHub</a>
+              </div>
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+              </div>
+              <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
+                <a href="#" target="_blank" rel="noopener noreferrer">Instagram</a>
+              </div>
+            </div>
           </div>
         </div>
-        <p className="text-gray-500 text-xs lg:text-sm font-medium text-center md:text-left">
-          Developed by GAT. <span>© Copyright by GAT</span>
-        </p>
+
+        {/* Divider */}
+        <div className="border-t border-gray-200 pt-6">
+          <div className="flex flex-col md:flex-row justify-between items-center">
+            <p className="text-gray-500 text-xs lg:text-sm font-medium text-center md:text-left mb-4 md:mb-0">
+              Developed by CSE(AIML) Club. <span>© 2025 CSE(AIML). All rights reserved.</span>
+            </p>
+          </div>
+        </div>
       </footer>
     </div>
   );

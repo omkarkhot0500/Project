@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation, useParams } from "react-router-dom";
 import {
   ArrowLeft,
   Calendar,
@@ -7,25 +8,46 @@ import {
   Code2,
   Sparkles,
 } from "lucide-react";
+import { previous, current } from "../TeamData/EventData"; // Import your event data
 
 const DetailPage = () => {
-  const [currentEvent] = useState({
-    type: "Skill Development Program",
-    name: "Data Visualization using Power BI",
-    date: "February 5, 2025",
-    desc: "Conducted by Mr. Mahadeva Prasad L, this session covered Power BI tools, data modeling with DAX, and integration with Python, R, and cloud platforms.",
-    img: "https://picsum.photos/400/300?random=8",
-  });
+  const location = useLocation();
+  const { id } = useParams();
+  const [currentEvent, setCurrentEvent] = useState(null);
 
-    const handleBack = () => {
+  useEffect(() => {
+    // First, try to get event data from navigation state
+    if (location.state) {
+      setCurrentEvent(location.state);
+    } else {
+      // Fallback: find event by ID from the data arrays
+      const allEvents = [...current, ...previous];
+      const foundEvent = allEvents.find((event, index) => index.toString() === id);
+      
+      if (foundEvent) {
+        setCurrentEvent(foundEvent);
+      } else {
+        // If no event found, use a default/fallback
+        setCurrentEvent({
+          type: "Event Not Found",
+          name: "Event Details Unavailable",
+          date: "Unknown Date",
+          desc: "Sorry, we couldn't find the details for this event.",
+          img: "https://via.placeholder.com/400x300?text=No+Image+Available",
+        });
+      }
+    }
+  }, [location.state, id]);
+
+  const handleBack = () => {
     window.history.back();
   };
 
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: currentEvent.name,
-        text: currentEvent.desc,
+        title: currentEvent?.name,
+        text: currentEvent?.desc,
         url: window.location.href,
       });
     } else {
@@ -33,6 +55,18 @@ const DetailPage = () => {
       alert("Link copied to clipboard!");
     }
   };
+
+  // Loading state
+  if (!currentEvent) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 flex items-center justify-center">
+        <div className="text-white text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-cyan-500 mx-auto mb-4"></div>
+          <p className="text-lg">Loading event details...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
@@ -79,6 +113,10 @@ const DetailPage = () => {
                   src={currentEvent.img}
                   alt={currentEvent.name}
                   className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
+                  onError={(e) => {
+                    // Fallback image if the original fails to load
+                    e.target.src = "https://via.placeholder.com/400x300?text=Image+Unavailable";
+                  }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>

@@ -8,7 +8,7 @@ const Form = () => {
       <img src={bg} alt="" className='h-[100vh] absolute -z-50 formAnim1 object-cover w-full' />
       <div className="bg-[#F5F5F5] rounded-3xl w-full max-w-7xl p-6 sm:p-10 grid grid-cols-1 lg:grid-cols-2 gap-10 formAnim">
         <div>
-          <h1 className='text-2xl md:text-4xl lg:text-6xl font-bold mb-4'>Sign up to our Newsletter</h1>
+          <h1 className='text-2xl md:text-4xl lg:text-6xl font-bold mb-4'>Contact the Club</h1>
           <form action="" className="space-y-6">
             <div className="flex flex-col md:flex-row w-full gap-6">
               <div className="w-full">

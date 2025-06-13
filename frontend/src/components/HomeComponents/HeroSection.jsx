@@ -253,12 +253,12 @@ const HeroSection = () => {
               : "opacity-0 transform translate-y-10"
           }`}
         >
-          GAT
+          Welcome to the CSE (AI & ML)
         </h2>
 
         {/* Animated headline with letter-by-letter reveal */}
-        <h1 className="text-3xl lg:text-8xl text-center font-bold text-gray-900 overflow-hidden">
-          {"saaaaaaaaaaaaaaaaaaaaaaaatvik".split("").map((letter, index) => (
+        <h1 className="text-3xl lg:text-8xl text-center font-bold text-blue-900 overflow-hidden">
+          {"A vibrant space where we code, create, and innovate with AI & ML.".split("").map((letter, index) => (
             <span
               key={index}
               className="inline-block transition-all duration-700"

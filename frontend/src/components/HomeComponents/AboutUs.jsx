@@ -89,7 +89,7 @@ const AboutUs = () => {
             </button>
             <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4 text-gradient'>ABOUT</h1>
             <p className='text-gray-500 text-sm sm:text-base leading-relaxed'>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos odio hic delectus nemo blanditiis repudiandae. Vel distinctio ducimus blanditiis quos minima provident hic obcaecati sequi voluptate quas, sed nam nostrum! Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, quia natus? Nulla, veniam vero inventore fugiat distinctio consequatur quas eveniet maiores.
+              Our department continues to achieve excellence through active student and faculty participation in research, innovation, and technical skill development. With expert talks from industry leaders, value-added programs, and strong industry collaborations, we strive to create a vibrant learning environment. We focus on emerging technologies, curriculum enhancement, and ethical professional growth—preparing students to contribute meaningfully to both industry and academia.
             </p>
             <div className="mt-6 sm:mt-8 lg:mt-10 flex w-full gap-4 sm:gap-6 md:gap-8 lg:gap-16">
               <div className="counter-item">
