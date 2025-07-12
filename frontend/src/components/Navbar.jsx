@@ -97,9 +97,11 @@ const Navbar = () => {
               className="w-full h-full object-cover rounded-full"
             />
           </div>
-          <h2 className="font-bold text-white text-lg md:text-xl cursor-pointer transition-all duration-300 group-hover:text-purple-200">
-            HOME
-          </h2>
+          {!isHomePage && (
+            <h2 className="font-bold text-white text-lg md:text-xl cursor-pointer transition-all duration-300 group-hover:text-purple-200">
+              HOME
+            </h2>
+          )}
         </div>
 
         {/* Desktop Menu */}
