@@ -35,7 +35,7 @@ const OurEvents = () => {
                 className="card bg-gray-100 rounded-3xl p-5 flex flex-col h-80"
               >
                 <div className="flex-grow">
-                  <button className="px-6 py-2 bg-gdsc-blue rounded-3xl text-white">
+                  <button className="px-6 py-2 bg-gdsc-blue rounded-3xl text-white" onClick={() => navigate("/events")}>
                     {event.category || event.department || "Event"}
                   </button>
                   <h2 className="font-bold mt-2">

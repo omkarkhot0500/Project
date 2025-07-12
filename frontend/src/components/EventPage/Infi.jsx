@@ -1,92 +1,48 @@
 import React from "react";
-import AndroidLogo from "/src/assets/Projectcard.jpg";
-import BehanceLogo from "/src/assets/project.svg";
-import GoogleLogo from "/src/assets/About_Image.png";
+import { previous } from "../../TeamData/EventData";
 import styles from "/src/Css/Infi.module.css";
+
 function Infi() {
+  // Step 2: Map only the img fields
+  const images = previous.map(event => event.img);
+
   return (
     <div className={styles.mainContainer}>
       <section className={styles.enablea}>
         <div className={styles.marquee}>
           <ul className={styles.marqueeContent}>
-            <li className={styles.marqueeItem}>
-              <img src={AndroidLogo} alt="Android Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={BehanceLogo} alt="Behance Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={GoogleLogo} alt="Google Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={AndroidLogo} alt="Android Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={BehanceLogo} alt="Behance Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={GoogleLogo} alt="Google Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={BehanceLogo} alt="Behance Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={GoogleLogo} alt="Google Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={AndroidLogo} alt="Android Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={BehanceLogo} alt="Behance Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={GoogleLogo} alt="Google Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={BehanceLogo} alt="Behance Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={GoogleLogo} alt="Google Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={AndroidLogo} alt="Android Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={BehanceLogo} alt="Behance Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={GoogleLogo} alt="Google Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={BehanceLogo} alt="Behance Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={GoogleLogo} alt="Google Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={AndroidLogo} alt="Android Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={BehanceLogo} alt="Behance Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={GoogleLogo} alt="Google Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={BehanceLogo} alt="Behance Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={GoogleLogo} alt="Google Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={AndroidLogo} alt="Android Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={BehanceLogo} alt="Behance Logo" />
-            </li>
-            <li className={styles.marqueeItem}>
-              <img src={GoogleLogo} alt="Google Logo" />
-            </li>
+            {/* Step 3: Render the images */}
+            {images.map((img, index) => (
+              <li key={index} className={styles.marqueeItem}>
+                <img 
+                  src={img} 
+                  alt={`Gallery ${index}`} 
+                  style={{
+                    width: '400px',
+                    height: '280px',
+                    objectFit: 'cover',
+                    borderRadius: '16px',
+                    minWidth: '400px'
+                  }}
+                />
+              </li>
+            ))}
+            {/* Duplicate the images for seamless scrolling */}
+            {images.map((img, index) => (
+              <li key={`duplicate-${index}`} className={styles.marqueeItem}>
+                <img 
+                  src={img} 
+                  alt={`Gallery ${index}`} 
+                  style={{
+                    width: '400px',
+                    height: '280px',
+                    objectFit: 'cover',
+                    borderRadius: '16px',
+                    minWidth: '400px'
+                  }}
+                />
+              </li>
+            ))}
           </ul>
         </div>
       </section>
