@@ -147,7 +147,7 @@ const Navbar = () => {
 
         <div className="flex flex-col items-center gap-4 py-4 px-4">
           {[
-            { name: "PROJECTS", path: "/projects" },
+            // { name: "PROJECTS", path: "/projects" },
             { name: "EVENTS", path: "/events" },
             { name: "TEAM", path: "/team" },
           ].map((item) => (

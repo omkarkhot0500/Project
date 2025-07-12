@@ -51,7 +51,7 @@ const Footer = () => {
           </div>
 
           {/* Projects */}
-          <div>
+          {/* <div>
             <h1 className="text-gray-600 font-bold mb-4">PROJECTS</h1>
             <div className="space-y-2">
               <div className="text-sm font-semibold text-gray-500 hover:text-gray-700 cursor-pointer">
@@ -67,7 +67,7 @@ const Footer = () => {
                 <a href="#projects/open-source">Open Source</a>
               </div>
             </div>
-          </div>
+          </div> */}
 
           {/* Resources */}
           <div>
