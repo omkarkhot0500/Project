@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom'; // ✅ Needed for navigation
+import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
+import newlogo from "../assets/newlogorounded.jpeg";
 
 const SplashPage = () => {
-  const navigate = useNavigate(); // ✅ Hook to programmatically navigate
+  const navigate = useNavigate();
   const [fadeOut, setFadeOut] = useState(false);
   const [animationStage, setAnimationStage] = useState(0);
 
@@ -14,26 +15,41 @@ const SplashPage = () => {
       setTimeout(() => {
         setFadeOut(true);
         setTimeout(() => {
-          navigate('/home'); // ✅ Actual redirection
+          navigate("/home");
         }, 1000);
-      }, 3000)
+      }, 3000),
     ];
 
-    return () => stageTimers.forEach(timer => clearTimeout(timer));
+    return () => stageTimers.forEach((timer) => clearTimeout(timer));
   }, [navigate]);
 
   return (
-    <div className={`flex flex-col items-center justify-center h-screen bg-gradient-to-b from-indigo-900 to-purple-900 transition-opacity duration-1000 ${fadeOut ? 'opacity-0' : 'opacity-100'}`}>
+    <div
+      className={`flex flex-col items-center justify-center h-screen bg-gradient-to-b from-indigo-900 to-purple-900 transition-opacity duration-1000 ${
+        fadeOut ? "opacity-0" : "opacity-100"
+      }`}
+    >
       <div className="text-center text-white max-w-lg px-4">
         {/* Logo animation */}
-        <div className={`mb-8 transition-all duration-700 transform ${animationStage >= 1 ? 'scale-100 opacity-100' : 'scale-50 opacity-0'}`}>
+        <div
+          className={`mb-8 transition-all duration-700 transform ${
+            animationStage >= 1 ? "scale-100 opacity-100" : "scale-50 opacity-0"
+          }`}
+        >
           <div className="w-32 h-32 mx-auto relative">
             <div className="absolute inset-0 rounded-full border-4 border-white opacity-70"></div>
-            <div className={`absolute inset-0 rounded-full border-t-4 border-purple-400 opacity-90 ${animationStage >= 1 ? 'animate-spin' : ''}`} style={{ animationDuration: '3s' }}></div>
+            <div
+              className={`absolute inset-0 rounded-full border-t-4 border-purple-400 opacity-90 ${
+                animationStage >= 1 ? "animate-spin" : ""
+              }`}
+              style={{ animationDuration: "3s" }}
+            ></div>
             <div className="absolute inset-0 flex items-center justify-center">
-              <span className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-purple-300 to-indigo-300">
-                GAT
-              </span>
+              <img
+                src={newlogo}
+                alt="Logo"
+                className="w-30 aspect-square object-cover rounded-full"
+              />
             </div>
           </div>
         </div>
@@ -44,9 +60,10 @@ const SplashPage = () => {
               key={i}
               className="inline-block transition-all duration-500"
               style={{
-                transform: animationStage >= 2 ? 'translateY(0)' : 'translateY(100%)',
+                transform:
+                  animationStage >= 2 ? "translateY(0)" : "translateY(100%)",
                 opacity: animationStage >= 2 ? 1 : 0,
-                transitionDelay: `${i * 70 + 200}ms`
+                transitionDelay: `${i * 70 + 200}ms`,
               }}
             >
               {letter}
@@ -58,8 +75,9 @@ const SplashPage = () => {
           className="text-lg md:text-xl mb-8 transition-all duration-700"
           style={{
             opacity: animationStage >= 2 ? 1 : 0,
-            transform: animationStage >= 2 ? 'translateY(0)' : 'translateY(20px)',
-            transitionDelay: '600ms'
+            transform:
+              animationStage >= 2 ? "translateY(0)" : "translateY(20px)",
+            transitionDelay: "600ms",
           }}
         >
           Loading your experience...
@@ -70,8 +88,8 @@ const SplashPage = () => {
           className="w-72 h-3 mx-auto relative transition-all duration-500"
           style={{
             opacity: animationStage >= 3 ? 1 : 0,
-            transform: animationStage >= 3 ? 'scaleX(1)' : 'scaleX(0.8)',
-            transitionDelay: '800ms'
+            transform: animationStage >= 3 ? "scaleX(1)" : "scaleX(0.8)",
+            transitionDelay: "800ms",
           }}
         >
           <div className="absolute -inset-1 rounded-full loading-glow-bg"></div>
@@ -92,17 +110,26 @@ const SplashPage = () => {
 
       <style jsx>{`
         @keyframes loading-bar-fill {
-          0% { width: 0%; }
-          100% { width: 100%; }
+          0% {
+            width: 0%;
+          }
+          100% {
+            width: 100%;
+          }
         }
 
         @keyframes loading-shine {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(350%); }
+          0% {
+            transform: translateX(-100%);
+          }
+          100% {
+            transform: translateX(350%);
+          }
         }
 
         @keyframes loading-pulse {
-          0%, 100% {
+          0%,
+          100% {
             opacity: 0.6;
             transform: scale(0.9);
           }
@@ -113,7 +140,8 @@ const SplashPage = () => {
         }
 
         @keyframes loading-glow {
-          0%, 100% {
+          0%,
+          100% {
             box-shadow: 0 0 15px rgba(168, 85, 247, 0.3);
           }
           50% {
@@ -122,7 +150,8 @@ const SplashPage = () => {
         }
 
         @keyframes sparkle {
-          0%, 100% {
+          0%,
+          100% {
             opacity: 0;
             transform: scale(0);
           }
@@ -133,29 +162,35 @@ const SplashPage = () => {
         }
 
         .loading-bar-gradient {
-          background: linear-gradient(90deg,
+          background: linear-gradient(
+            90deg,
             #6366f1 0%,
             #8b5cf6 50%,
-            #a855f7 100%);
+            #a855f7 100%
+          );
           animation: loading-bar-fill 2.5s ease-out infinite;
           box-shadow: 0 0 10px rgba(168, 85, 247, 0.4),
-                      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
         }
 
         .loading-shine {
-          background: linear-gradient(90deg,
+          background: linear-gradient(
+            90deg,
             transparent 0%,
             rgba(255, 255, 255, 0.3) 50%,
-            transparent 100%);
+            transparent 100%
+          );
           width: 30%;
           animation: loading-shine 2s ease-in-out infinite;
         }
 
         .loading-pulse {
-          background: radial-gradient(circle,
+          background: radial-gradient(
+            circle,
             rgba(255, 255, 255, 0.6) 0%,
             rgba(168, 85, 247, 0.4) 50%,
-            transparent 100%);
+            transparent 100%
+          );
           animation: loading-pulse 1.5s ease-in-out infinite;
         }
 

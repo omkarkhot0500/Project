@@ -59,7 +59,7 @@ const AboutUs = () => {
       const easedProgress = easeOutQuad(progress);
 
       setMembersCount(Math.floor(easedProgress * targetValues.members));
-      setEventsCount(Math.floor(easedProgress * targetValues.events)); 
+      setEventsCount(Math.floor(easedProgress * targetValues.events));
       // setProjectsCount(Math.floor(easedProgress * targetValues.projects));
 
       if (progress < 1) {
@@ -142,7 +142,7 @@ const AboutUs = () => {
                     <span className="dot dot-green w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500"></span>
                   </div>
                   <div className="code-title text-xs sm:text-sm text-white mx-auto">
-                    coding_club.py
+                    ANVESHAN.py
                   </div>
                 </div>
                 <div className="code-body p-3 sm:p-4 bg-gray-900 rounded-b-lg sm:rounded-b-xl text-xs sm:text-sm overflow-x-auto">
