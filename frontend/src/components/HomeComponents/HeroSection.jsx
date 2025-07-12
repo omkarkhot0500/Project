@@ -253,7 +253,7 @@ const HeroSection = () => {
               : "opacity-0 transform translate-y-10"
           }`}
         >
-          Welcome to the CSE (AI & ML)
+          Welcome to CSE (AI & ML)
         </h2>
 
         {/* Animated headline with letter-by-letter reveal */}

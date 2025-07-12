@@ -3,15 +3,15 @@ export const data = [
     Name: "Project 1",
     img: "url",
     desc1:
-      "Welcome to the Google Developer Student Club (GAT) at   CSE(AIML)– a community where innovation meets opportunity. We are a student-led organization committed to fostering a vibrant tech ecosystem on campus. Our mission is to bridge the gap between theoretical knowledge and real-world application, empowering students to develop and refine their technical skills.",
+      "Welcome at CSE(AIML)– a community where innovation meets opportunity. We are a student-led organization committed to fostering a vibrant tech ecosystem on campus. Our mission is to bridge the gap between theoretical knowledge and real-world application, empowering students to develop and refine their technical skills.",
     desc2:
       "As a part of a global network of GATs, we focus on practical learning and collaborative projects in cutting-edge technologies such as artificial intelligence, machine learning, cloud computing, and web development. Our events and initiatives are designed to help you grow as a technologist and leader in the ever-evolving tech landscape.",
     ProjectStat: [
       {
-        Members: 60,
+        Members: 15,
         Projects: "8+",
         Departments: "12",
-      },
+      }, 
     ],
   },
   {

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from "react";
 import "../../Css/animation.css";
 
 const AboutUs = () => {
@@ -42,33 +42,33 @@ const AboutUs = () => {
 
     let startTime;
     const duration = 1500; // Animation duration in ms
-    
+
     const targetValues = {
-      members: 60,
-      events: 8,
-      projects: 12
+      members: 15,
+      events: 9,
+      // projects: 12
     };
 
     const step = (timestamp) => {
       if (!startTime) startTime = timestamp;
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / duration, 1);
-      
+
       // Easing function for smoother animation
-      const easeOutQuad = progress => 1 - (1 - progress) * (1 - progress);
+      const easeOutQuad = (progress) => 1 - (1 - progress) * (1 - progress);
       const easedProgress = easeOutQuad(progress);
-      
+
       setMembersCount(Math.floor(easedProgress * targetValues.members));
-      setEventsCount(Math.floor(easedProgress * targetValues.events));
-      setProjectsCount(Math.floor(easedProgress * targetValues.projects));
-      
+      setEventsCount(Math.floor(easedProgress * targetValues.events)); 
+      // setProjectsCount(Math.floor(easedProgress * targetValues.projects));
+
       if (progress < 1) {
         animationRef.current = requestAnimationFrame(step);
       }
     };
-    
+
     animationRef.current = requestAnimationFrame(step);
-    
+
     return () => {
       if (animationRef.current) {
         cancelAnimationFrame(animationRef.current);
@@ -77,33 +77,57 @@ const AboutUs = () => {
   }, [isInView]);
 
   return (
-    <div className='w-full flex justify-center px-4 sm:px-6 md:px-8'>
+    <div className="w-full flex justify-center px-4 sm:px-6 md:px-8">
       <div
         ref={sectionRef}
         className="w-full max-w-7xl bg-gradient-to-br from-gray-100 to-gray-200 justify-center rounded-xl sm:rounded-2xl md:rounded-3xl px-4 sm:px-8 md:px-12 lg:px-20 py-6 sm:py-8 md:py-10 aboutUs shadow-md sm:shadow-lg"
       >
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8 md:gap-10 lg:gap-16 items-center">
           <div className="lg:col-span-3 space-y-4 sm:space-y-5 md:space-y-6">
-            <button className='bg-red-500 px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl sm:rounded-3xl text-white text-xs sm:text-sm mb-4 sm:mb-6 hover:bg-red-600 transition-all shadow-md hover:shadow-lg transform hover:scale-105'>
+            <button className="bg-red-500 px-3 py-1.5 sm:px-4 sm:py-2 rounded-2xl sm:rounded-3xl text-white text-xs sm:text-sm mb-4 sm:mb-6 hover:bg-red-600 transition-all shadow-md hover:shadow-lg transform hover:scale-105">
               CSE(AIML)
             </button>
-            <h1 className='text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4 text-gradient'>ABOUT</h1>
-            <p className='text-gray-500 text-sm sm:text-base leading-relaxed'>
-              Our department continues to achieve excellence through active student and faculty participation in research, innovation, and technical skill development. With expert talks from industry leaders, value-added programs, and strong industry collaborations, we strive to create a vibrant learning environment. We focus on emerging technologies, curriculum enhancement, and ethical professional growth—preparing students to contribute meaningfully to both industry and academia.
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold mb-3 sm:mb-4 text-gradient">
+              ABOUT
+            </h1>
+            <p className="text-gray-500 text-sm sm:text-base leading-relaxed">
+              Our department continues to achieve excellence through active
+              student and faculty participation in research, innovation, and
+              technical skill development. With expert talks from industry
+              leaders, value-added programs, and strong industry collaborations,
+              we strive to create a vibrant learning environment. We focus on
+              emerging technologies, curriculum enhancement, and ethical
+              professional growth—preparing students to contribute meaningfully
+              to both industry and academia.
             </p>
             <div className="mt-6 sm:mt-8 lg:mt-10 flex w-full gap-4 sm:gap-6 md:gap-8 lg:gap-16">
               <div className="counter-item">
-                <h1 className='counter-value text-2xl sm:text-3xl md:text-4xl font-bold'>{membersCount}<span className="counter-plus">+</span></h1>
-                <p className='counter-label text-xs sm:text-sm md:text-base'>Members</p>
+                <h1 className="counter-value text-2xl sm:text-3xl md:text-4xl font-bold">
+                  {membersCount}
+                  <span className="counter-plus">+</span>
+                </h1>
+                <p className="counter-label text-xs sm:text-sm md:text-base">
+                  Members
+                </p>
               </div>
               <div className="counter-item">
-                <h1 className='counter-value text-2xl sm:text-3xl md:text-4xl font-bold'>{eventsCount}<span className="counter-plus">+</span></h1>
-                <p className='counter-label text-xs sm:text-sm md:text-base'>Events</p>
+                <h1 className="counter-value text-2xl sm:text-3xl md:text-4xl font-bold">
+                  {eventsCount}
+                  <span className="counter-plus">+</span>
+                </h1>
+                <p className="counter-label text-xs sm:text-sm md:text-base">
+                  Events
+                </p>
               </div>
-              <div className="counter-item">
-                <h1 className='counter-value text-2xl sm:text-3xl md:text-4xl font-bold'>{projectsCount}<span className="counter-plus">+</span></h1>
-                <p className='counter-label text-xs sm:text-sm md:text-base'>Projects</p>
-              </div>
+              {/* <div className="counter-item">
+                <h1 className="counter-value text-2xl sm:text-3xl md:text-4xl font-bold">
+                  {projectsCount}
+                  <span className="counter-plus">+</span>
+                </h1>
+                <p className="counter-label text-xs sm:text-sm md:text-base">
+                  Projects
+                </p>
+              </div> */}
             </div>
           </div>
 
@@ -117,54 +141,91 @@ const AboutUs = () => {
                     <span className="dot dot-yellow w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-yellow-500"></span>
                     <span className="dot dot-green w-2.5 h-2.5 sm:w-3 sm:h-3 rounded-full bg-green-500"></span>
                   </div>
-                  <div className="code-title text-xs sm:text-sm text-white mx-auto">coding_club.py</div>
+                  <div className="code-title text-xs sm:text-sm text-white mx-auto">
+                    coding_club.py
+                  </div>
                 </div>
                 <div className="code-body p-3 sm:p-4 bg-gray-900 rounded-b-lg sm:rounded-b-xl text-xs sm:text-sm overflow-x-auto">
                   <div className="code-line">
-                    <span className="code-keyword text-purple-400">import</span> 
-                    <span className="code-normal text-gray-200"> machine_learning </span>
+                    <span className="code-keyword text-purple-400">import</span>
+                    <span className="code-normal text-gray-200">
+                      {" "}
+                      machine_learning{" "}
+                    </span>
                     <span className="code-keyword text-purple-400">as</span>
                     <span className="code-normal text-gray-200"> ml</span>
                   </div>
                   <div className="code-line">
-                    <span className="code-keyword text-purple-400">from</span> 
-                    <span className="code-normal text-gray-200"> innovation </span>
+                    <span className="code-keyword text-purple-400">from</span>
+                    <span className="code-normal text-gray-200">
+                      {" "}
+                      innovation{" "}
+                    </span>
                     <span className="code-keyword text-purple-400">import</span>
-                    <span className="code-normal text-gray-200"> creativity</span>
+                    <span className="code-normal text-gray-200">
+                      {" "}
+                      creativity
+                    </span>
                   </div>
                   <div className="code-line">
-                    <span className="code-comment text-gray-400"># Create amazing projects</span>
+                    <span className="code-comment text-gray-400">
+                      # Create amazing projects
+                    </span>
                   </div>
                   <div className="code-line">
-                    <span className="code-keyword text-purple-400">class</span> 
-                    <span className="code-class text-yellow-300"> CodingClub</span>
+                    <span className="code-keyword text-purple-400">class</span>
+                    <span className="code-class text-yellow-300">
+                      {" "}
+                      CodingClub
+                    </span>
                     <span className="code-normal text-gray-200">:</span>
                   </div>
                   <div className="code-line pl-4">
-                    <span className="code-keyword text-purple-400">def</span> 
-                    <span className="code-function text-blue-300"> __init__</span>
+                    <span className="code-keyword text-purple-400">def</span>
+                    <span className="code-function text-blue-300">
+                      {" "}
+                      __init__
+                    </span>
                     <span className="code-normal text-gray-200">(self):</span>
                   </div>
                   <div className="code-line pl-8 typing-animation">
-                    <span className="code-normal text-gray-200">self.members = </span>
-                    <span className="code-number text-green-300">{membersCount}</span>
+                    <span className="code-normal text-gray-200">
+                      self.members ={" "}
+                    </span>
+                    <span className="code-number text-green-300">
+                      {membersCount}
+                    </span>
                   </div>
                   <div className="code-line pl-8 typing-animation-2">
-                    <span className="code-normal text-gray-200">self.events = </span>
-                    <span className="code-number text-green-300">{eventsCount}</span>
+                    <span className="code-normal text-gray-200">
+                      self.events ={" "}
+                    </span>
+                    <span className="code-number text-green-300">
+                      {eventsCount}
+                    </span>
                   </div>
-                  <div className="code-line pl-8 typing-animation-3">
-                    <span className="code-normal text-gray-200">self.projects = </span>
-                    <span className="code-number text-green-300">{projectsCount}</span>
-                  </div>
+                  {/* <div className="code-line pl-8 typing-animation-3">
+                    <span className="code-normal text-gray-200">
+                      self.projects ={" "}
+                    </span>
+                    <span className="code-number text-green-300">
+                      {projectsCount}
+                    </span>
+                  </div> */}
                   <div className="code-line pl-4 typing-animation-4">
-                    <span className="code-keyword text-purple-400">def</span> 
-                    <span className="code-function text-blue-300"> innovate</span>
+                    <span className="code-keyword text-purple-400">def</span>
+                    <span className="code-function text-blue-300">
+                      {" "}
+                      innovate
+                    </span>
                     <span className="code-normal text-gray-200">(self):</span>
                   </div>
                   <div className="code-line pl-8 typing-animation-5">
                     <span className="code-keyword text-purple-400">return</span>
-                    <span className="code-normal text-gray-200"> creativity.generate()</span>
+                    <span className="code-normal text-gray-200">
+                      {" "}
+                      creativity.generate()
+                    </span>
                   </div>
                   <div className="blinking-cursor h-4 w-2 bg-white opacity-70"></div>
                 </div>
@@ -180,6 +241,6 @@ const AboutUs = () => {
       </div>
     </div>
   );
-}
+};
 
 export default AboutUs;
