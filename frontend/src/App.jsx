@@ -32,7 +32,7 @@ const AppContent = () => {
         <Route path="/alumni" element={<Alumni />} />
         <Route path="/team" element={<Team />} />
         <Route path="/projects" element={<Projects />} />
-        <Route path="/detail/:id" element={<DetailPage />} /> {/* New detail route */}
+        <Route path="/detail/:id" element={<DetailPage />} /> 
       </Routes>
       {!hideNavbarFooter && <Footer />}
     </div>

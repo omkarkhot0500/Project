@@ -7,7 +7,7 @@ import sharadaImg from "../assets/Event/sharada.png";
 import skillDevImg from "../assets/Event/skilldevelopment.png";
 import powerBiImg from "../assets/Event/powerbi.png";
 import shyam from "../assets/Event/shyam.png";
-const image1 = "https://pin.it/5OJzBox9C"; // must be a direct link
+import image1 from "../assets/Event/skillsimage.jpg";
 
 export const current = [];
 

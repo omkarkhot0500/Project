@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import newlogo from "../assets/newlogorounded.jpeg";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -14,10 +15,10 @@ const Navbar = () => {
       setScrolled(window.scrollY > 20);
     };
     window.addEventListener("scroll", handleScroll);
-    
+
     // Initial check for scroll position
     handleScroll();
-    
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -41,7 +42,9 @@ const Navbar = () => {
         className="bg-white text-purple-700 px-8 py-2 rounded-full hover:bg-purple-100 transition-all duration-300 font-bold text-sm shadow-md hover:shadow-lg transform hover:scale-105"
         onClick={() => {
           if (isHomePage) {
-            document.querySelector("#form").scrollIntoView({ behavior: "smooth" });
+            document
+              .querySelector("#form")
+              .scrollIntoView({ behavior: "smooth" });
           }
         }}
       >
@@ -53,14 +56,18 @@ const Navbar = () => {
   const MobileFormLinkButton = () => (
     <div
       className={`transition-all duration-300 ease-in-out transform w-full ${
-        isHomePage ? "max-h-20 opacity-100 mb-2" : "max-h-0 opacity-0 mb-0 overflow-hidden"
+        isHomePage
+          ? "max-h-20 opacity-100 mb-2"
+          : "max-h-0 opacity-0 mb-0 overflow-hidden"
       }`}
     >
       <button
         className="bg-white text-purple-700 w-full py-3 rounded-full hover:bg-purple-100 transition-all duration-300 font-bold shadow-md mt-2"
         onClick={() => {
           if (isHomePage) {
-            document.querySelector("#form").scrollIntoView({ behavior: "smooth" });
+            document
+              .querySelector("#form")
+              .scrollIntoView({ behavior: "smooth" });
             toggleMenu();
           }
         }}
@@ -84,10 +91,14 @@ const Navbar = () => {
           onClick={() => navigate("/home")}
         >
           <div className="flex items-center justify-center bg-white bg-opacity-90 rounded-full h-8 w-8 md:h-10 md:w-10 transition-transform duration-300 group-hover:rotate-12 group-hover:scale-110">
-            <span className="font-bold text-purple-700 text-xs md:text-base">GAT</span>
+            <img
+              src={newlogo}
+              alt="GAT Logo"
+              className="w-full h-full object-cover rounded-full"
+            />
           </div>
           <h2 className="font-bold text-white text-lg md:text-xl cursor-pointer transition-all duration-300 group-hover:text-purple-200">
-            GAT
+            HOME
           </h2>
         </div>
 
@@ -126,12 +137,32 @@ const Navbar = () => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M6 18L18 6M6 6l12 12" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M6 18L18 6M6 6l12 12"
+                />
               </svg>
             ) : (
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16m-7 6h7" />
+              <svg
+                className="w-6 h-6"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M4 6h16M4 12h16m-7 6h7"
+                />
               </svg>
             )}
           </button>
@@ -140,11 +171,10 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       <div
-  className={`md:hidden fixed left-4 right-4 mt-3 rounded-xl bg-gradient-to-b from-purple-700 to-violet-900 transition-all duration-300 ease-in-out z-40 shadow-2xl ${
-    isOpen ? "top-16 opacity-100" : "top-[-100vh] opacity-0"
-  }`}
->
-
+        className={`md:hidden fixed left-4 right-4 mt-3 rounded-xl bg-gradient-to-b from-purple-700 to-violet-900 transition-all duration-300 ease-in-out z-40 shadow-2xl ${
+          isOpen ? "top-16 opacity-100" : "top-[-100vh] opacity-0"
+        }`}
+      >
         <div className="flex flex-col items-center gap-4 py-4 px-4">
           {[
             // { name: "PROJECTS", path: "/projects" },
