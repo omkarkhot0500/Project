@@ -239,40 +239,45 @@ const HeroSection = () => {
       />
 
       {/* Content container with entrance animation */}
-      <div
-        className={`w-[80%] justify-center items-center flex flex-col transition-all duration-1000 ${
-          isVisible
-            ? "opacity-100 transform translate-y-0"
-            : "opacity-0 transform translate-y-10"
-        }`}
-      >
-        <h2
-          className={`text-gray-600 font-light mb-4 mt-8 transition-all duration-1000 delay-300 ${
-            isVisible
-              ? "opacity-100 transform translate-y-0"
-              : "opacity-0 transform translate-y-10"
-          }`}
-        >
-          Welcome to CSE (AI & ML)
-        </h2>
+      {/* Content container with entrance animation */}
+<div
+  className={`w-[80%] justify-center items-center flex flex-col transition-all duration-1000 ${
+    isVisible
+      ? "opacity-100 transform translate-y-0"
+      : "opacity-0 transform translate-y-10"
+  }`}
+>
+  <h2
+    className={`text-gray-600 font-light mb-4 mt-8 transition-all duration-1000 delay-300 ${
+      isVisible
+        ? "opacity-100 transform translate-y-0"
+        : "opacity-0 transform translate-y-10"
+    }`}
+  >
+    Welcome to <span className="text-blue-600 font-semibold">CSE (AI & ML)</span>
+  </h2>
 
-        {/* Animated headline with letter-by-letter reveal */}
-        <h1 className="text-3xl lg:text-8xl text-center font-bold text-blue-900 overflow-hidden">
-          {"A vibrant space where we code, create, and innovate with AI & ML.".split("").map((letter, index) => (
-            <span
-              key={index}
-              className="inline-block transition-all duration-700"
-              style={{
-                transform: isVisible ? "translateY(0)" : "translateY(100%)",
-                opacity: isVisible ? 1 : 0,
-                transitionDelay: `${index * 50}ms`,
-              }}
-            >
-              {letter === " " ? "\u00A0" : letter}
-            </span>
-          ))}
-        </h1>
-      </div>
+  {/* Animated headline with word-by-word reveal to prevent mobile splitting */}
+  <h1 className="text-3xl lg:text-8xl text-center font-bold text-blue-900 overflow-hidden">
+    {"A vibrant space where we code, create, and innovate with AI & ML.".split(" ").map((word, wordIndex) => (
+      <span key={wordIndex} className="inline-block mr-2">
+        {word.split("").map((letter, letterIndex) => (
+          <span
+            key={letterIndex}
+            className="inline-block transition-all duration-700"
+            style={{
+              transform: isVisible ? "translateY(0)" : "translateY(100%)",
+              opacity: isVisible ? 1 : 0,
+              transitionDelay: `${(wordIndex * word.length + letterIndex) * 50}ms`,
+            }}
+          >
+            {letter}
+          </span>
+        ))}
+      </span>
+    ))}
+  </h1>
+</div>
 
       {/* Add interactive floating glow effects */}
       <div className="absolute top-0 left-0 w-full h-full -z-15 pointer-events-none">
