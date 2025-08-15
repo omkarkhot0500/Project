@@ -25,34 +25,6 @@ const Team = () => {
       imageUrl: "https://randomuser.me/api/portraits/women/21.jpg",
       linkedinUrl: "https://www.linkedin.com/in/meerajoshi09/",
     },
-    {
-      id: 3,
-      name: "Kabir Desai",
-      designation: "Co-Lead",
-      imageUrl: "https://randomuser.me/api/portraits/men/34.jpg",
-      linkedinUrl: "https://www.linkedin.com/in/kabirdesai88/",
-    },
-    {
-      id: 4,
-      name: "Ritika Bansal",
-      designation: "Design Mentor",
-      imageUrl: "https://randomuser.me/api/portraits/women/56.jpg",
-      linkedinUrl: "https://www.linkedin.com/in/ritikabansal/",
-    },
-    {
-      id: 5,
-      name: "Anaya Mehta",
-      designation: "UI/UX Mentor",
-      imageUrl: "https://randomuser.me/api/portraits/women/67.jpg",
-      linkedinUrl: "https://www.linkedin.com/in/anayamehta/",
-    },
-    {
-      id: 6,
-      name: "Dev Sharma",
-      designation: "App Dev Mentor",
-      imageUrl: "https://randomuser.me/api/portraits/men/72.jpg",
-      linkedinUrl: "https://www.linkedin.com/in/devsharma04/",
-    },
   ];
 
   const CoreMembers = [
@@ -155,7 +127,7 @@ const Team = () => {
       <div className="content">
         <div className="w-[80%] justify-center items-center flex flex-col">
           <div className="text-gray-600 font-semibold justify-center items-center flex">
-            <p className="para">About our Past members</p>
+            <p className="para">About ou Past members</p>
           </div>
           <h1 className="h1">Team of GAT</h1>
           <div className="but">
