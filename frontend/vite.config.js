@@ -10,5 +10,6 @@ export default defineConfig({
       usePolling: true,
       interval: 100 // (optional) check every 100ms
     }
-  }
+  },
+  assetsInclude: ['**/*.JPG'], // 👈 add this line
 })

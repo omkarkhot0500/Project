@@ -46,10 +46,11 @@ const Team = () => {
           {ExecutiveMembers.map((member) => (
             <div key={member.id} className="team-member">
               <img
-                src={member.imageUrl}
-                alt={member.name}
-                className="profile-image"
-              />
+  src={member.imageUrl}
+  alt={member.name}
+  className="w-40 h-40 rounded-full object-cover"
+/>
+
               <div className="team-team">
                 <div className="team-info">
                   <h2 className="h3">{member.name}</h2>
