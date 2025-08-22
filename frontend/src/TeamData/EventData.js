@@ -1,4 +1,3 @@
-// Import all your images first
 import dineshImg from "../assets/Event/dinesh.png";
 import mindMazeImg from "../assets/Event/MindMaze.png";
 import vapImg from "../assets/Event/VAP.png";
