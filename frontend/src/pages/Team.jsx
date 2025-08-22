@@ -31,7 +31,7 @@ const Team = () => {
 
       <div className="content1">
         <div className="content2">
-          <h2 className="h2">Executive Board</h2>
+          <h2 className="h2">Executive  Board</h2>
           <p className="texteb">
             Explore our diverse range of projects that showcase the creativity
             and technical prowess of our members. From groundbreaking apps to
