@@ -7,13 +7,13 @@ import Dyuthishree from "../assets/TeamImages/dyuthishree creative and social me
 import Hima from "../assets/TeamImages/hima shaju- treasurer.jpg";
 import Janani from "../assets/TeamImages/janani- Marketing Head.jpg";
 import Manya from "../assets/TeamImages/Manya- Social media head.jpg";
-import Nithya from "../assets/TeamImages/Nithya-president.jpg";
+import Nithya from "../assets/TeamImages/Nithya-president.JPG";
 import Pragna from "../assets/TeamImages/pragna- creative and social media team.jpg";
 import Priyanka from "../assets/TeamImages/priyanka- creative and social media team.jpg";
 import Rahul from "../assets/TeamImages/rahul - secretary.jpg";
 import Shreyanka from "../assets/TeamImages/Shreyanka- creative and social media team.jpg";
 import TechCoordinator from "../assets/TeamImages/Technical Coordinator.jpg";
-import Vignesh from "../assets/TeamImages/vignesh-vice-president.jpg";
+import Vignesh from "../assets/TeamImages/vignesh-vice-president.JPG";
 import Yashwant from "../assets/TeamImages/yashwant- technical team member.jpg";
 import Yukthi from "../assets/TeamImages/yukthi- marketing head.jpg";
 
